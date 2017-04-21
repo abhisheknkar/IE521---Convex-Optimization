@@ -18,10 +18,31 @@
       <file leaf-file-name="HW5.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HW5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="184" column="0" lean-forward="true" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#88#445#0" expanded="false" />
+                <element signature="e#209#386#0" expanded="false" />
+                <element signature="e#502#1201#0" expanded="false" />
+                <element signature="e#605#1174#0" expanded="false" />
+                <element signature="e#731#870#0" expanded="false" />
+                <element signature="e#1243#2391#0" expanded="false" />
+                <element signature="e#1372#2364#0" expanded="false" />
+                <element signature="e#1560#1769#0" expanded="false" />
+                <element signature="e#1853#1922#0" expanded="false" />
+                <element signature="e#2434#3173#0" expanded="false" />
+                <element signature="e#2539#3133#0" expanded="false" />
+                <element signature="e#2727#2877#0" expanded="false" />
+                <element signature="e#3192#5040#0" expanded="false" />
+                <element signature="e#3423#3846#0" expanded="false" />
+                <element signature="e#3514#3630#0" expanded="false" />
+                <element signature="e#3893#4491#0" expanded="false" />
+                <element signature="e#3983#4269#0" expanded="false" />
+                <element signature="e#4017#4269#0" expanded="false" />
+                <element signature="e#4520#5040#0" expanded="false" />
+                <element signature="e#5059#5722#0" expanded="false" />
+                <element signature="e#5755#5774#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -49,6 +70,7 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_7.py" />
         <option value="$PROJECT_DIR$/DampedNewton.py" />
         <option value="$PROJECT_DIR$/GD.py" />
+        <option value="$PROJECT_DIR$/ellipsoid.py" />
         <option value="$PROJECT_DIR$/HW5.py" />
       </list>
     </option>
@@ -404,29 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ellipsoid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="979">
-          <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding>
-            <marker date="1489357360138" expanded="false" signature="0:50" ph="import ..." />
-            <marker date="1489357360138" expanded="true" signature="67:429" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="184:370" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="500:1482" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="520:1163" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="1186:1464" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="1535:3429" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="1540:1664" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="1898:2662" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="2172:2215" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="2680:3368" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="2699:2945" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="3465:3613" ph="..." />
-            <marker date="1489357360138" expanded="true" signature="3641:3728" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DampedNewton.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -443,12 +442,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ellipsoid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HW5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="374">
+          <caret line="184" column="0" lean-forward="true" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#88#445#0" expanded="false" />
+            <element signature="e#209#386#0" expanded="false" />
+            <element signature="e#502#1201#0" expanded="false" />
+            <element signature="e#605#1174#0" expanded="false" />
+            <element signature="e#731#870#0" expanded="false" />
+            <element signature="e#1243#2391#0" expanded="false" />
+            <element signature="e#1372#2364#0" expanded="false" />
+            <element signature="e#1560#1769#0" expanded="false" />
+            <element signature="e#1853#1922#0" expanded="false" />
+            <element signature="e#2434#3173#0" expanded="false" />
+            <element signature="e#2539#3133#0" expanded="false" />
+            <element signature="e#2727#2877#0" expanded="false" />
+            <element signature="e#3192#5040#0" expanded="false" />
+            <element signature="e#3423#3846#0" expanded="false" />
+            <element signature="e#3514#3630#0" expanded="false" />
+            <element signature="e#3893#4491#0" expanded="false" />
+            <element signature="e#3983#4269#0" expanded="false" />
+            <element signature="e#4017#4269#0" expanded="false" />
+            <element signature="e#4520#5040#0" expanded="false" />
+            <element signature="e#5059#5722#0" expanded="false" />
+            <element signature="e#5755#5774#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,7 +1,20 @@
 import numpy as np
-from ellipsoid import readWDBC
 import matplotlib.pyplot as plt
 MAXITERS = 1000
+
+def readWDBC():
+    f = open('wdbc.data','r')
+    X = []
+    Y = []
+    labelMap = {'B':1.0,'M':-1.0}
+    for line in f.readlines():
+        lsplit = line.strip().split(',')
+        Y.append(labelMap[lsplit[1]])
+        toAdd = []
+        for x in lsplit[2:]:
+            toAdd.append(float(x))
+        X.append(toAdd)
+    return np.array(X), np.reshape(np.array(Y),(len(Y),1))
 
 def gradient_descent(X,y,lambda_, w0, gamma, eps):
     gradNorm = np.inf
@@ -28,34 +41,6 @@ def gradient_descent(X,y,lambda_, w0, gamma, eps):
             print 'Iterations:', iterCount, 'Gradient Norm:',gradNorm, 'Function value:', f_val
         if iterCount > MAXITERS:
             break
-    return (w_opt, f_hist)
-
-def gradient_descent_wOffset(X,y,lambda_, w0, gamma, eps):
-    gradNorm = np.inf
-    w_opt = np.concatenate((w0,[0]))
-    f_hist = []
-
-    iterCount = 0
-
-    while gradNorm > eps:
-        grad = lambda_* w_opt
-        grad[-1] = 0
-
-        f_val = 0.5*lambda_ * (np.linalg.norm(w_opt[:-1]))**2
-
-        for idx,x in enumerate(X):
-            EXP_TERM = np.exp(-y[idx]*(w_opt[:-1].dot(x)+w_opt[-1]))
-            f_val += np.log(1+EXP_TERM)
-            grad[0:-1] += (-y[idx]*EXP_TERM) / (1 + EXP_TERM) * x
-            grad[-1] += (-y[idx]*EXP_TERM) / (1 + EXP_TERM)
-
-        f_hist.append(f_val)
-        w_opt -= gamma * grad
-        gradNorm = np.linalg.norm(grad)
-
-        iterCount += 1
-        if iterCount % 100 == 0:
-            print 'Iterations:', iterCount, 'Gradient:',gradNorm, 'Function value:', f_val
     return (w_opt, f_hist)
 
 def Newton(X, y, lambda_, w0, eps):
@@ -91,6 +76,32 @@ def Newton(X, y, lambda_, w0, eps):
         if iterCount > MAXITERS:
             break
     return (w_opt, f_hist)
+
+def damped_Newton(A, b, c, x0, eps):
+    x_opt = x0
+    lambda_hist = []
+    f_hist = []
+    lambda_ = np.infty
+
+    while lambda_ > eps:
+        f = c.T.dot(x_opt)
+        grad = c.copy()
+        hessian = np.zeros((len(x0),len(x0)), dtype=float)
+
+        # Get the gradient, hessian
+        for idx,row in enumerate(A):
+            ERROR = b[idx]-row.dot(x_opt)
+            f -= np.log(ERROR)
+            grad += row / ERROR
+            hessian += np.outer(row, row) / (ERROR*ERROR)
+
+        inv_hessian = np.linalg.inv(hessian)
+        lambda_ = np.sqrt(grad.dot(inv_hessian).dot(grad))
+        x_opt -= inv_hessian.dot(grad) / (1+lambda_)
+        f_hist.append(f)
+        lambda_hist.append(lambda_)
+        print 'Newton step:',lambda_
+    return (x_opt, f_hist, lambda_hist)
 
 def Q1Exp():
     toDos = [2]
@@ -144,32 +155,6 @@ def Q1Exp():
         plt.title('Comparison of Gradient Descent with Newton Method')
         plt.legend()
         plt.show()
-
-def damped_Newton(A, b, c, x0, eps):
-    x_opt = x0
-    lambda_hist = []
-    f_hist = []
-    lambda_ = np.infty
-
-    while lambda_ > eps:
-        f = c.T.dot(x_opt)
-        grad = c.copy()
-        hessian = np.zeros((len(x0),len(x0)), dtype=float)
-
-        # Get the gradient, hessian
-        for idx,row in enumerate(A):
-            ERROR = b[idx]-row.dot(x_opt)
-            f -= np.log(ERROR)
-            grad += row / ERROR
-            hessian += np.outer(row, row) / (ERROR*ERROR)
-
-        inv_hessian = np.linalg.inv(hessian)
-        lambda_ = np.sqrt(grad.dot(inv_hessian).dot(grad))
-        x_opt -= inv_hessian.dot(grad) / (1+lambda_)
-        f_hist.append(f)
-        lambda_hist.append(lambda_)
-        print 'Newton step:',lambda_
-    return (x_opt, f_hist, lambda_hist)
 
 def Q2Exp():
     m,n = 100,50
